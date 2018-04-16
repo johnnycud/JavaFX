@@ -5,12 +5,11 @@ public class Attempt {
     private int mRemainingSeconds;
     private AttemptKind mKind;
 
-    public Attempt(String message, AttemptKind kind) {
+    public Attempt(AttemptKind kind,String message ) {
         mMessage = message;
         mKind = kind;
         mRemainingSeconds = kind.getTotalSeconds();
     }
-
     public String getMessage() {
         return mMessage;
     }
@@ -23,7 +22,8 @@ public class Attempt {
         return mKind;
     }
 
-    public void setRemainingSeconds(int remainingSeconds) {
-        mRemainingSeconds = remainingSeconds;
+    public void setMessage(String message) {
+        mMessage = message;
     }
+
 }
