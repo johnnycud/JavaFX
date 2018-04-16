@@ -14,5 +14,5 @@ public enum AttemptKind {
 
     private int mTotalSeconds;
 
-    
+
 }
