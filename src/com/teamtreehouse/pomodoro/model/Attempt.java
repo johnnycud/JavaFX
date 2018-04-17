@@ -26,4 +26,7 @@ public class Attempt {
         mMessage = message;
     }
 
+    public void tick() {
+        mRemainingSeconds--;
+    }
 }
