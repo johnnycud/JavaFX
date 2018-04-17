@@ -88,11 +88,13 @@ public class Home {
     }
 
     public void  playTimer(){
+        container.getStyleClass().add("playing");
         mTimeline.play();
 
     }
 
     public void pauseTimer(){
+        container.getStyleClass().remove("playing");
         mTimeline.pause();
     }
 
@@ -100,6 +102,7 @@ public class Home {
         container.getStyleClass().add(kind.toString().toLowerCase());
     }
     private void clearAttemptStyles(){
+        container.getStyleClass().remove("playing");
         for(AttemptKind kind: AttemptKind.values()){
            container.getStyleClass().remove(kind.toString().toLowerCase()) ;
         }
@@ -108,5 +111,18 @@ public class Home {
     public void handleRestart(ActionEvent actionEvent) {
         prepareAttempt(AttemptKind.FOCUS);
         playTimer();
+    }
+
+    public void handlePlay(ActionEvent actionEvent) {
+        if(mCurrentAttempt == null){
+            handleRestart(actionEvent);
+        }else{
+            playTimer();
+        }
+        playTimer();
+    }
+
+    public void handlePause(ActionEvent actionEvent) {
+        pauseTimer();
     }
 }
